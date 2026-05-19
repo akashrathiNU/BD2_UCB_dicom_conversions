@@ -278,7 +278,7 @@ def rename_partic(sub, ses, bids_dir):
         print(directory + new_name)
         os.rename(file, new_name)
 
-def main(sub, ses, bids_dir='/Users/akashrathi/Documents/Github/BD2_dicom_conversions/bids'):
+def main(sub, ses, bids_dir='/Users/akashrathi/Documents/Github/BD2_UCB_dicom_conversions/bids'):
     make_bids_dirs(sub,ses,bids_dir)
     rename_partic(sub,ses,bids_dir)
 

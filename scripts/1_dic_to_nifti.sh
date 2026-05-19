@@ -4,19 +4,19 @@ echo $SUB
 SES=$2
 echo $SES
 
-scan_folders=/Users/akashrathi/Documents/Github/BD2_dicom_conversions/dicoms/uncompressed/$SUB/*
+scan_folders=/Users/akashrathi/Documents/Github/BD2_UCB_dicom_conversions/dicoms/uncompressed/$SUB/*
 echo $scan_folders
 
-if [ ! -d "/Users/akashrathi/Documents/Github/BD2_dicom_conversions/bids/sub-$SUB" ]; then
-    mkdir /Users/akashrathi/Documents/Github/BD2_dicom_conversions/bids/sub-$SUB
+if [ ! -d "/Users/akashrathi/Documents/Github/BD2_UCB_dicom_conversions/bids/sub-$SUB" ]; then
+    mkdir /Users/akashrathi/Documents/Github/BD2_UCB_dicom_conversions/bids/sub-$SUB
 fi
-if [ ! -d "/Users/akashrathi/Documents/Github/BD2_dicom_conversions/bids/sub-$SUB/$SES" ]; then
-    mkdir /Users/akashrathi/Documents/Github/BD2_dicom_conversions/bids/sub-$SUB/$SES     
+if [ ! -d "/Users/akashrathi/Documents/Github/BD2_UCB_dicom_conversions/bids/sub-$SUB/$SES" ]; then
+    mkdir /Users/akashrathi/Documents/Github/BD2_UCB_dicom_conversions/bids/sub-$SUB/$SES     
 fi
 
 for SCAN in $scan_folders; do # Whitespace-safe but not recursive.
     echo $SCAN
-    OUTPUT=/Users/akashrathi/Documents/Github/BD2_dicom_conversions/bids/sub-$SUB/$SES
+    OUTPUT=/Users/akashrathi/Documents/Github/BD2_UCB_dicom_conversions/bids/sub-$SUB/$SES
     echo $OUTPUT
     dcm2niix -b y -z o -w 1 -f %n--%d--s%s--e%e -o $OUTPUT $SCAN
 done
